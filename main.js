@@ -11,6 +11,28 @@ var storage = [
     { "id": "0010", "name": "Fanta", "price": 12 }
 ]
 
+export function printReceipt(...barcodes) {
+    if (!validateBarcodes(...barcodes)) {
+        console.log("ERROR");
+        return;
+    }
+    let receipts = calcReceipts(...barcodes);
+    let outputReceipts = transformReceipt(...receipts);
+    
+    let printResult = ''
+    let totalPrice = 0;
+    printResult += 'Receipts\n';
+    printResult += '------------------------------------------------------------\n';
+    outputReceipts.forEach(receipt => {
+        totalPrice += receipt.price * receipt.number;
+        printResult += receipt.name + '            ' + receipt.price + '   ' + receipt.number + '\n';
+    })
+    printResult += '------------------------------------------------------------\n';
+    printResult += 'Price: ' + totalPrice;
+    console.log(printResult);
+    return printResult
+}
+
 export function validateBarcodes(...barcodes) {
     return barcodes.every(barcode => {
         let item = storage.find(it => it.id === barcode);
@@ -19,10 +41,6 @@ export function validateBarcodes(...barcodes) {
         }
         return true;
     })
-}
-
-export function printReceipt(...barcodes) {
-    calcReceipts(barcodes)
 }
 
 export function calcReceipts(...barcodes) {
@@ -35,4 +53,18 @@ export function calcReceipts(...barcodes) {
     })
 
     return receipts
+}
+
+function transformReceipt(...receipts) {
+    let outputReceipts = [];
+    receipts.forEach(receipt => {
+        let existItem = outputReceipts.find(it => it.id == receipt.id)
+        if (existItem == undefined) {
+            receipt.number = 1;
+            outputReceipts.push(receipt);
+        } else {
+            existItem.number++
+        }
+    })
+    return outputReceipts;
 }
