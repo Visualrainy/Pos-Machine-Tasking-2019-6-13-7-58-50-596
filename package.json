@@ -1,0 +1,23 @@
+{
+  "name": "posmachine",
+  "version": "1.0.0",
+  "description": "pos Machine",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Visualrainy/Pos-Machine-Tasking-2019-6-13-7-58-50-596.git"
+  },
+  "keywords": [
+    "pos",
+    "machine"
+  ],
+  "author": "visual",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Visualrainy/Pos-Machine-Tasking-2019-6-13-7-58-50-596/issues"
+  },
+  "homepage": "https://github.com/Visualrainy/Pos-Machine-Tasking-2019-6-13-7-58-50-596#readme"
+}
