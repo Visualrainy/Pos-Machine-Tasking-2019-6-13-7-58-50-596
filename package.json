@@ -19,5 +19,10 @@
   "bugs": {
     "url": "https://github.com/Visualrainy/Pos-Machine-Tasking-2019-6-13-7-58-50-596/issues"
   },
-  "homepage": "https://github.com/Visualrainy/Pos-Machine-Tasking-2019-6-13-7-58-50-596#readme"
+  "homepage": "https://github.com/Visualrainy/Pos-Machine-Tasking-2019-6-13-7-58-50-596#readme",
+  "devDependencies": {
+    "babel-jest": "^25.2.4",
+    "babel-preset-env": "^1.7.0",
+    "jest": "^25.2.4"
+  }
 }
